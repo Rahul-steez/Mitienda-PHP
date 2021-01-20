@@ -1,0 +1,31 @@
+header{
+    background:#e00b0b;
+    color:#ffff;
+}
+.main{
+    background:#f2f2f2;
+}
+.color1{
+    background:#34495e;
+    color:#fff;
+}
+aside{
+    background:#000000;
+    color:#fff;
+}
+#tarifa4{
+    background: #e00b0b;
+    color: #fff;
+}
+#tarifa3{
+    background: #1eb986;
+    color: #fff;
+}
+#tarifa2{
+    background: #6461ff;
+    color: #fff;
+}
+#tarifa1{
+    background: #e05708;
+    color: #fff;
+}
