@@ -5,6 +5,7 @@
   //Parámetros de conexión
   $servidor="localhost";
   $usuario="root";
+  //$contraseña="usbw";
   $contraseña="";
   $bd="tienda m07 rahul manwani";
 

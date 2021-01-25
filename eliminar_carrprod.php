@@ -1,9 +1,8 @@
 <?php
 
-    
-    AñadirProductoCarrito($_GET['no'], $_GET['ni']);
+	EliminarProducto($_GET['ni'],$_GET['id']);
 
-	function AñadirProductoCarrito($no, $ni){
+	function EliminarProducto($ni, $id){
 
         header("Content-Type: text/html;charset=utf-8");
 
@@ -26,10 +25,11 @@
       echo "Felicidades lerdo! te has conectado a la BD";
       
     }
-        $sentencia="INSERT INTO $ni (productos_id) VALUES ('".$no."')";
-        $con->query($sentencia) or die ("Error al Entrar".mysqli_error($con));
+        $sentencia="DELETE FROM $ni WHERE productos_id='".$id."' ";
+        $con->query($sentencia) or die ("Error al eliminar".mysqli_error($con));
 		
     }
+    
     echo "<td> <a href='Capture.php?ni=".$_GET['ni']."''><button type='button' class='btn btn-danger'>Seguir Comprando</button></a> </td>";
 ?>
 

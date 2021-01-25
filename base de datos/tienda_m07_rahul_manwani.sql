@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-01-2021 a las 23:18:56
+-- Tiempo de generación: 25-01-2021 a las 04:16:18
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.0
 
@@ -42,6 +42,27 @@ INSERT INTO `administrador` (`nick`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `logo`
+--
+
+CREATE TABLE `logo` (
+  `id` int(6) UNSIGNED NOT NULL,
+  `productos_id` int(50) NOT NULL,
+  `cantidad` int(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `logo`
+--
+
+INSERT INTO `logo` (`id`, `productos_id`, `cantidad`) VALUES
+(5, 6, 0),
+(7, 5, 0),
+(8, 5, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `productos`
 --
 
@@ -58,12 +79,34 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`Id`, `Name`, `Descripción`, `Precio`, `Imagen`) VALUES
-(1, 'Iman caldea', 'Tipico iman de caldea', 2.99, 'caldea.jpg'),
+(1, 'Iman Caldea', 'Tipico Iman de Caldea', 2.99, 'caldea.jpg'),
 (2, 'Iman Ski', 'Tipico Iman de ski!', 2.99, 'ski.jpg'),
 (3, 'Iman Casita', 'Tipico Iman de una Casita', 2.99, 'casita.jpg'),
 (4, 'Silla Gaming', 'Tipica silla Gaming', 40.80, 'sillagaming.jfif'),
 (5, 'Silla de Oficina', 'Tipica Silla de oficina', 50.90, 'sillaoficina.jpg'),
 (6, 'Butaca de salon', 'Tipica Butaca de Salon!', 42.60, 'butaca.jfif');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `quars`
+--
+
+CREATE TABLE `quars` (
+  `id` int(6) UNSIGNED NOT NULL,
+  `productos_id` int(50) NOT NULL,
+  `cantidad` int(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `quars`
+--
+
+INSERT INTO `quars` (`id`, `productos_id`, `cantidad`) VALUES
+(1, 3, 0),
+(2, 2, 0),
+(4, 3, 0),
+(5, 4, 0);
 
 -- --------------------------------------------------------
 
@@ -102,6 +145,18 @@ INSERT INTO `rhea` (`id`, `productos_id`, `apellidos`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `soldiera`
+--
+
+CREATE TABLE `soldiera` (
+  `id` int(6) UNSIGNED NOT NULL,
+  `productos_id` int(50) NOT NULL,
+  `cantidad` int(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuario`
 --
 
@@ -136,17 +191,34 @@ INSERT INTO `usuario` (`nick`, `password`) VALUES
 ('pup', 'pup'),
 ('fr', 'fr'),
 ('yh', 'yh'),
-('op', 'op');
+('op', 'op'),
+('rhea', 'login'),
+('soldier', 'soldier'),
+('quars', 'quars');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
+-- Indices de la tabla `logo`
+--
+ALTER TABLE `logo`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `productos_id` (`productos_id`);
+
+--
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`Id`);
+
+--
+-- Indices de la tabla `quars`
+--
+ALTER TABLE `quars`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `productos_id` (`productos_id`);
 
 --
 -- Indices de la tabla `rhea`
@@ -156,8 +228,21 @@ ALTER TABLE `rhea`
   ADD KEY `productos_id` (`productos_id`);
 
 --
+-- Indices de la tabla `soldiera`
+--
+ALTER TABLE `soldiera`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `productos_id` (`productos_id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `logo`
+--
+ALTER TABLE `logo`
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -166,10 +251,44 @@ ALTER TABLE `productos`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT de la tabla `quars`
+--
+ALTER TABLE `quars`
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT de la tabla `rhea`
 --
 ALTER TABLE `rhea`
   MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT de la tabla `soldiera`
+--
+ALTER TABLE `soldiera`
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `logo`
+--
+ALTER TABLE `logo`
+  ADD CONSTRAINT `logo_ibfk_1` FOREIGN KEY (`productos_id`) REFERENCES `productos` (`Id`);
+
+--
+-- Filtros para la tabla `quars`
+--
+ALTER TABLE `quars`
+  ADD CONSTRAINT `quars_ibfk_1` FOREIGN KEY (`productos_id`) REFERENCES `productos` (`Id`);
+
+--
+-- Filtros para la tabla `soldiera`
+--
+ALTER TABLE `soldiera`
+  ADD CONSTRAINT `soldiera_ibfk_1` FOREIGN KEY (`productos_id`) REFERENCES `productos` (`Id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

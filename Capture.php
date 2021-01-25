@@ -36,23 +36,15 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="logout.php">Log Out</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-          </li>
-          <li class="nav-item">
-          <a href="carrito.php?ni=<?php echo $_GET['ni'] ?>">Shoping Cart</a>
-              <span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart
-            </a>
-          <li>
+  
+  
+          <a href="carrito.php?ni=<?php echo $_GET['ni'] ?>" class="btn btn-outline-info btn-sm pull-right">Shoping Cart</a>
+    
+          <a class="btn btn-outline-info btn-sm pull-right" href="logout.php">Log Out</a>
+
+          <a class="btn btn-outline-info btn-sm pull-right" href="Micuenta.php?ni=<?php echo $_GET['ni'] ?>">Mi Cuenta</a>
+  
             
           </a>
         </ul>
@@ -114,6 +106,7 @@
           //Parámetros de conexión
           $servidor="localhost";
           $usuario="root";
+          //$contraseña="usbw";
           $contraseña="";
           $bd="tienda m07 rahul manwani";
 
